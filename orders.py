@@ -4,6 +4,7 @@ import os
 
 from flask import Flask, jsonify, request
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
+from flask_cors import CORS
 
 
 app = Flask(__name__)
@@ -11,6 +12,8 @@ app.config['JWT_SECRET_KEY'] = 'alma'
 jwt = JWTManager(app)
 if os.getenv('AUTH_ENABLED', 'true').lower() not in ('yes', 'true', '1'):
     jwt_required = lambda fn: fn
+if os.getenv('CORS_ENABLED', 'false').lower() in ('yes', 'true', '1'):
+    CORS(app)
 
 @dataclass
 class Order:
