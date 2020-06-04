@@ -1,0 +1,1 @@
+Flask-JWT-Extended==3.24.1
