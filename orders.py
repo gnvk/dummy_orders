@@ -10,7 +10,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.config['JWT_SECRET_KEY'] = 'alma'
 jwt = JWTManager(app)
-if os.getenv('AUTH_ENABLED', 'true').lower() not in ('yes', 'true', '1'):
+if os.getenv('AUTH_ENABLED', 'false').lower() not in ('yes', 'true', '1'):
     jwt_required = lambda fn: fn
 if os.getenv('CORS_ENABLED', 'false').lower() in ('yes', 'true', '1'):
     CORS(app)
