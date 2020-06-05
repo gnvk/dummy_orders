@@ -37,7 +37,7 @@ def generate_random_orders(count):
             qty=random.randrange(1, 1000))
 
 symbols = list(read_symbols())
-order_count = os.getenv('ORDER_COUNT') or 30
+order_count = int(os.getenv('ORDER_COUNT', 30))
 orders = list(generate_random_orders(order_count))
 
 @app.route('/login', methods=['POST'])
