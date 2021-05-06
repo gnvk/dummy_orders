@@ -1,2 +1,2 @@
 Flask-JWT-Extended==3.24.1
-flask-cors==3.0.8
+flask-cors==3.0.9
